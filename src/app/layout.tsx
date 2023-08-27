@@ -4,9 +4,10 @@ import "./globals.css"
 import "./theme-config.css"
 
 import type { Metadata } from "next"
-import { Space_Grotesk, Inter } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import { Container, Theme } from "@radix-ui/themes"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import PlausibleProvider from "next-plausible"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,17 +37,19 @@ export default function RootLayout({
         className={`${inter.variable} ${grotesk.variable}`}
         style={{ margin: 0 }}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Theme
-            accentColor="cyan"
-            grayColor="gray"
-            panelBackground="solid"
-            scaling="100%"
-            radius="medium"
-          >
-            <Container size="3">{children}</Container>
-          </Theme>
-        </ThemeProvider>
+        <PlausibleProvider domain={"johannessjoberg.com"}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Theme
+              accentColor="cyan"
+              grayColor="gray"
+              panelBackground="solid"
+              scaling="100%"
+              radius="medium"
+            >
+              <Container size="3">{children}</Container>
+            </Theme>
+          </ThemeProvider>
+        </PlausibleProvider>
       </body>
     </html>
   )
