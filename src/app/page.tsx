@@ -98,11 +98,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <main>
-      <Grid
-        my={{ sm: "8", initial: "4" }}
-        px={{ sm: "8", initial: "4" }}
-        direction="column"
-      >
+      <Grid my={{ sm: "8", initial: "4" }} px={{ sm: "8", initial: "4" }}>
         <Section size="2">
           <Heading
             className="mb-3 border-b border-dashed border-[color:var(--gray-a10)]"
@@ -126,9 +122,9 @@ export default function Home() {
         <Section size="2">
           <SubHeading>About me</SubHeading>
           <Text size={{ initial: "2", sm: "3" }}>
-            Hi, I'm Johannes Sjöberg! I create software for a living and I'm
-            passionate about privacy and open source. I'm based in Stockholm,
-            Sweden. Avid{" "}
+            Hi, I&lsquo;m Johannes Sjöberg! I create software for a living and
+            I&lsquo;m passionate about privacy and open source. I&lsquo;m based
+            in Stockholm, Sweden. Avid{" "}
             <a className="underline" href="https://hdtgm.com" target="_blank">
               HDTGM
             </a>{" "}
