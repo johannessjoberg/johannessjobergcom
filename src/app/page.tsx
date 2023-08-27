@@ -1,113 +1,195 @@
-import Image from 'next/image'
+import {
+  Box,
+  Card,
+  Flex,
+  Grid,
+  Heading,
+  IconButton,
+  Inset,
+  Section,
+  Strong,
+  Text,
+} from "@radix-ui/themes"
+import {
+  GitHubLogoIcon,
+  GlobeIcon,
+  LinkedInLogoIcon,
+  TwitterLogoIcon,
+} from "@radix-ui/react-icons"
+import { ThemeSwitcher } from "@/components/ThemeSwitcher"
+
+const socials = [
+  {
+    url: "https://github.com/johannessjoberg",
+    icon: GitHubLogoIcon,
+  },
+  {
+    url: "https://twitter.com/sjobergjohannes",
+    icon: TwitterLogoIcon,
+  },
+  {
+    url: "https://www.linkedin.com/in/johannes-sjöberg-08070571",
+    icon: LinkedInLogoIcon,
+  },
+]
+
+const projects = [
+  {
+    name: "attested.tech",
+    url: "https://attested.tech",
+    description:
+      "An open source playground for decentralized identifiers. Created with Anton Johansson.",
+    icon: GlobeIcon,
+  },
+  // {
+  //   name: "johannessjobergcom",
+  //   url: "https://johannessjoberg.com",
+  //   description: "This site. Feel free to make it your own.",
+  //   icon: GitHubLogoIcon,
+  // },
+]
+
+const experience = [
+  {
+    date: "2023 - Present",
+    role: "Engineering",
+    companyName: "Milkywire",
+    companyUrl: "https://milkywire.com",
+    description:
+      "Working on a system that helps companies donate to vetted non-profits.",
+  },
+  {
+    role: "Staff Engineer",
+    companyName: "Proxy",
+    companyUrl: "https://www.crunchbase.com/organization/martians",
+    date: "2020 - 2023",
+    description:
+      "Design and implementation of a decentralized identity platform.",
+  },
+  {
+    role: "Tech lead",
+    companyName: "DPOrganizer",
+    companyUrl: "https://www.dporganizer.com",
+    date: "2017 - 2020",
+    description:
+      "Design and implementation of a privacy management system. Helped grow the tech team from 2 to 15 people.",
+  },
+  {
+    role: "Consultant",
+    companyName: "Netlight",
+    companyUrl: "https://www.netlight.com",
+    date: "2015 - 2017",
+    description:
+      "Worked as a software consultant at Bauer Media and Photowall.",
+  },
+]
+
+function SubHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <Heading
+      className="mb-4 border-b border-[color:var(--gray-a5)]"
+      size={{ initial: "5", sm: "6" }}
+    >
+      {children}
+    </Heading>
+  )
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main>
+      <Grid
+        my={{ sm: "8", initial: "4" }}
+        px={{ sm: "8", initial: "4" }}
+        direction="column"
+      >
+        <Section size="2">
+          <Heading
+            className="mb-3 border-b border-dashed border-[color:var(--gray-a10)]"
+            size={{ initial: "7", sm: "8" }}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            Johannes Sjöberg
+          </Heading>
+          <Flex justify="between" mb="2">
+            <Flex gap={{ initial: "4" }} mb="2">
+              {socials.map((social, index) => (
+                <IconButton key={index} asChild variant="ghost" color="gray">
+                  <a href={social.url} target="_blank">
+                    <social.icon width="20" height="20" />
+                  </a>
+                </IconButton>
+              ))}
+            </Flex>
+            <ThemeSwitcher />
+          </Flex>
+        </Section>
+        <Section size="2">
+          <SubHeading>About me</SubHeading>
+          <Text size={{ initial: "2", sm: "3" }}>
+            Hi, I'm Johannes Sjöberg! I create software for a living and I'm
+            passionate about privacy and open source. I'm based in Stockholm,
+            Sweden. Avid{" "}
+            <a className="underline" href="https://hdtgm.com" target="_blank">
+              HDTGM
+            </a>{" "}
+            podcast listener and I love myself a good board game. You can reach
+            me at the above socials, or by{" "}
+            <a className="underline" href="mailto:johannes@johannessjoberg.com">
+              email
+            </a>
+            .
+          </Text>
+        </Section>
+        <Section size="2">
+          <SubHeading>Side projects</SubHeading>
+          <Flex direction="column" gap="4">
+            {projects.map((project, index) => (
+              <Card key={index} size="1" asChild>
+                <a href={project.url} target="_blank">
+                  <Flex>
+                    <Inset side="left" pr="current">
+                      <Flex
+                        align="center"
+                        justify="center"
+                        px="5"
+                        className="bg-[color:var(--accent-a5)]"
+                        style={{ height: "100%" }}
+                      >
+                        <project.icon height="30" width="30" />
+                      </Flex>
+                    </Inset>
+                    <Box>
+                      <Heading color="gray" mb="1" size="4">
+                        <Strong>{project.name}</Strong>
+                      </Heading>
+                      <Text size="2">{project.description}</Text>
+                    </Box>
+                  </Flex>
+                </a>
+              </Card>
+            ))}
+          </Flex>
+        </Section>
+        <Section size="2">
+          <SubHeading>Experience</SubHeading>
+          <Flex direction="column" gap="4">
+            {experience.map((work, index) => (
+              <Box key={index}>
+                <Text size="1">{work.date}</Text>
+                <Text className="block">
+                  <Strong>{work.role}</Strong> at{" "}
+                  <Text className="underline">
+                    <a href={work.companyUrl} target="_blank">
+                      {work.companyName}
+                    </a>
+                  </Text>
+                </Text>
+                <Text size={{ initial: "2", sm: "3" }}>{work.description}</Text>
+              </Box>
+            ))}
+          </Flex>
+        </Section>
+      </Grid>
     </main>
   )
 }
