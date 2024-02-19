@@ -1,5 +1,5 @@
 .radix-themes {
     --heading-font-family: var(--font-grotesk), sans-serif;
-    --default-font-family: var(--font-grotesk), sans-serif;
-    --em-font-family: var(--font-grotesk), sans-serif;
+    --default-font-family: var(--font-inter), sans-serif;
+    --em-font-family: var(--font-inter), sans-serif;
 }
