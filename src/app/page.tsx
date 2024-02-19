@@ -14,6 +14,7 @@ import {
   GitHubLogoIcon,
   GlobeIcon,
   LinkedInLogoIcon,
+  PersonIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
@@ -35,18 +36,20 @@ const socials = [
 
 const projects = [
   {
-    name: "attested.tech",
-    url: "https://attested.tech",
+    name: "Symbol.green",
+    url: "https://symbol.green",
     description:
-      "An open source playground for decentralized identifiers. Created with Anton Johansson.",
-    icon: GlobeIcon,
+      "Curating meaningful tech jobs at companies solving important problems",
+    icon: PersonIcon,
+    backgroundColor: "bg-[color:var(--green-a7)]",
   },
-  // {
-  //   name: "johannessjobergcom",
-  //   url: "https://johannessjoberg.com",
-  //   description: "This site. Feel free to make it your own.",
-  //   icon: GitHubLogoIcon,
-  // },
+  {
+    name: "attested.tech",
+    url: "https://attested-tech.vercel.app/",
+    description: "An open source playground for decentralized identifiers",
+    icon: GlobeIcon,
+    backgroundColor: "bg-[color:var(--accent-a7)]",
+  },
 ]
 
 const experience = [
@@ -56,15 +59,14 @@ const experience = [
     companyName: "Milkywire",
     companyUrl: "https://milkywire.com",
     description:
-      "Working on a system that helps companies donate to vetted non-profits.",
+      "Building the next-gen donation platform connecting corporations with vetted organizations around the world.",
   },
   {
     role: "Staff Engineer",
     companyName: "Proxy",
     companyUrl: "https://www.crunchbase.com/organization/martians",
     date: "2020 - 2023",
-    description:
-      "Design and implementation of a decentralized identity platform.",
+    description: "Design and implementation of Proxy's identity platform.",
   },
   {
     role: "Tech lead",
@@ -72,7 +74,7 @@ const experience = [
     companyUrl: "https://www.dporganizer.com",
     date: "2017 - 2020",
     description:
-      "Design and implementation of a privacy management system. Helped grow the tech team from 2 to 15 people.",
+      "Design and implementation of a data protection management system. Involved in growing the tech team from 2 to 15 people.",
   },
   {
     role: "Consultant",
@@ -122,14 +124,11 @@ export default function Home() {
         <Section size="2">
           <SubHeading>About me</SubHeading>
           <Text size={{ initial: "2", sm: "3" }}>
-            Hi, I&lsquo;m Johannes Sjöberg! I create software for a living and
-            I&lsquo;m passionate about privacy and open source. I&lsquo;m based
-            in Stockholm, Sweden. Avid{" "}
-            <a className="underline" href="https://hdtgm.com" target="_blank">
-              HDTGM
-            </a>{" "}
-            podcast listener and I love myself a good board game. You can reach
-            me at the above socials, or by{" "}
+            Hey! I create software for a living and I&lsquo;m passionate about
+            sustainability, privacy and open source. I&lsquo;m based in
+            Stockholm, Sweden. Aside from work, I love myself a good board game
+            and I&lsquo;m currently trying to learn how to slap the bass. You
+            can reach me at the above socials, or by{" "}
             <a className="underline" href="mailto:johannes@johannessjoberg.com">
               email
             </a>
@@ -148,13 +147,13 @@ export default function Home() {
                         align="center"
                         justify="center"
                         px="5"
-                        className="bg-[color:var(--accent-a5)]"
+                        className={project.backgroundColor}
                         style={{ height: "100%" }}
                       >
                         <project.icon height="30" width="30" />
                       </Flex>
                     </Inset>
-                    <Box>
+                    <Box ml="1">
                       <Heading color="gray" mb="1" size="4">
                         <Strong>{project.name}</Strong>
                       </Heading>
