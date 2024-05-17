@@ -5,7 +5,7 @@ import "./theme-config.css"
 
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
-import { Container, Theme } from "@radix-ui/themes"
+import { Box, Container, Theme } from "@radix-ui/themes"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import PlausibleProvider from "next-plausible"
 
@@ -40,13 +40,13 @@ export default function RootLayout({
         <PlausibleProvider domain={"johannessjoberg.com"}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Theme
-              accentColor="cyan"
-              grayColor="gray"
+              accentColor="red"
+              grayColor="mauve"
               panelBackground="solid"
               scaling="100%"
-              radius="medium"
+              radius="none"
             >
-              <Container size="3">{children}</Container>
+              <Box className="bg-[color:var(--gray-2)]">{children}</Box>
             </Theme>
           </ThemeProvider>
         </PlausibleProvider>

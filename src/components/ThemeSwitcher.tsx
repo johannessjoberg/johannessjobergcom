@@ -33,8 +33,9 @@ export function ThemeSwitcher() {
       onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
       variant="ghost"
       color="gray"
+      highContrast
     >
-      <Half2Icon width={20} height={20} />
+      <Half2Icon width={24} height={24} />
     </IconButton>
   )
 
