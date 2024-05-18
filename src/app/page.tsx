@@ -90,15 +90,24 @@ function SubHeading({ children }: { children: React.ReactNode }) {
   )
 }
 
-function BorderedContainer({ children }: { children: React.ReactNode }) {
+function BorderedContainer({
+  py = "6",
+  children,
+  className = "",
+}: {
+  py?: "6" | "4"
+  children?: React.ReactNode
+  className?: string
+}) {
   return (
-    <Box className="border-b border-dashed border-[color:var(--gray-8)]">
-      <Container size="2">
+    <Box
+      className={`border-b border-dashed border-[color:var(--gray-8)] ${className}`}
+    >
+      <Container className={`border-x border-[color:var(--gray-8)]`} size="2">
         <Box
-          pt="6"
-          pb="6"
+          py={py}
           px="4"
-          className="border-x border-[color:var(--gray-8)]"
+          className={`h-full border-x border-[color:var(--gray-8)] `}
         >
           {children}
         </Box>
@@ -109,11 +118,11 @@ function BorderedContainer({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex flex-col min-h-screen">
       <BorderedContainer>
         <Heading size="7">Johannes Sjöberg</Heading>
       </BorderedContainer>
-      <BorderedContainer>
+      <BorderedContainer py="4">
         <Flex justify="between">
           <Flex gap={{ initial: "4" }}>
             {socials.map((social, index) => (
@@ -185,6 +194,7 @@ export default function Home() {
           ))}
         </Flex>
       </BorderedContainer>
+      <BorderedContainer className="flex grow"></BorderedContainer>
     </main>
   )
 }
