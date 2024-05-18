@@ -21,6 +21,7 @@ import {
   TwitterLogoIcon,
 } from "@radix-ui/react-icons"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
+import { Alike } from "next/font/google"
 
 const socials = [
   {
@@ -93,17 +94,15 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 function BorderedContainer({
   py = "6",
   children,
-  className = "",
+  className = "border-b border-dashed border-[color:var(--gray-8)]",
 }: {
   py?: "6" | "4"
   children?: React.ReactNode
   className?: string
 }) {
   return (
-    <Box
-      className={`border-b border-dashed border-[color:var(--gray-8)] ${className}`}
-    >
-      <Container className={`border-x border-[color:var(--gray-8)]`} size="2">
+    <Box className={className}>
+      <Container size="2">
         <Box
           py={py}
           px="4"
@@ -194,7 +193,7 @@ export default function Home() {
           ))}
         </Flex>
       </BorderedContainer>
-      <BorderedContainer className="flex grow"></BorderedContainer>
+      <BorderedContainer className="flex grow border-0"></BorderedContainer>
     </main>
   )
 }
